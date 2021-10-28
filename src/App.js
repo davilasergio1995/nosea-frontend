@@ -1,11 +1,12 @@
-import MessageGen from './components/messageGen/MessageGen';
-
+import MessageGen from './components/MessageGen/MessageGen';
+import TextBox from './components/TextBox/TextBox';
 
 function App() {
   
   return (
     <div>
-    <MessageGen></MessageGen>
+      <MessageGen></MessageGen>
+      <TextBox></TextBox>
     </div>
   );
   };

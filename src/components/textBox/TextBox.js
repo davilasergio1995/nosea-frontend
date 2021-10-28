@@ -1,14 +1,37 @@
 import React, {useState} from 'react';
+import Axios from 'axios';
 
-let TextBox = (props) => {
+//Submits text from text box into the .JSON file/database
+
+let TextBox = () => {
     const [text, setText] = useState('');
 
-    return (
-        <div>
-            <input></input>
-            <button></button>
-        </div>
+    let idGen = (messageContent, seed = (Math.random())) => {
+        let hash = 0;
+        
+        for (let i=0; i<messageContent.length; i++) {
+            hash += messageContent.charCodeAt(i);
+        }
+        return (100000000 - (Math.floor(hash / seed) * 100));
+    };
+
+    let chatSubmit = (e) => {
+        e.preventDefault();
+        Axios.post('/api/chatLogs', {
+            userName: "Snowhopfirado",
+            userId: "42069",
+            messageId: idGen(text),
+            messageContent: text
+        });
+    }
+    
+    return(
+        <form>
+            <input type='text' value={text} onChange={(e) => setText(e.target.value)}/>
+            <button onClick={chatSubmit}></button>
+        </form>
     )
+    
 };
 
 export default TextBox;

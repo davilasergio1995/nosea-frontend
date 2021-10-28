@@ -1,10 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import Axios from 'axios';
-import Message from '../message/Message';
+import Message from '../Message/Message';
 
 const MessageGen = (props) => {
 
-let [messages, setMessages] = useState([])
+let [messages, setMessages] = useState([]);
 
     useEffect(() => {
         Axios.get('/api/chatLogs').then((response) => {
