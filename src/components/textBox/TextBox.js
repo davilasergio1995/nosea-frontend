@@ -17,6 +17,9 @@ let TextBox = () => {
 
     let chatSubmit = (e) => {
         e.preventDefault();
+        if (text === '') {
+            return;
+        }
         Axios.post('/api/chatLogs', {
             userName: "Snowhopfirado",
             userId: "42069",

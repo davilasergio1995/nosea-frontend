@@ -10,7 +10,7 @@ let [messages, setMessages] = useState([]);
         Axios.get('/api/chatLogs').then((response) => {
         setMessages(response.data);
         })
-    }, []);
+    },);
 
     let chatMap = messages.map(e => <Message key = {e.messageId} username={e.userName} message={e.messageContent}></Message>);
 
