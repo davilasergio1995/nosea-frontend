@@ -23,6 +23,7 @@ let TextBox = () => {
             messageId: idGen(text),
             messageContent: text
         });
+        setText('');
     }
     
     return(
