@@ -5,7 +5,7 @@ let Message = (props) => {
     return(
         <div className='message' key={props.key}>
             <p>{props.username}: </p>
-            <p> {props.message}</p>
+            <p>{props.message}</p>
         </div>
     )
 };

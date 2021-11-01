@@ -1,0 +1,21 @@
+
+.textBox {
+    margin-left: 2px;
+    margin-bottom: 20px;
+    padding-left: 5px;
+    font-size: large;
+    line-height: 3em;
+    width: 75%;
+    border: solid 2px blue;
+    outline: black;
+}
+
+.chat_button{
+    position: relative;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    background-color: green;
+    width: 70px;
+    height: 40px;
+}

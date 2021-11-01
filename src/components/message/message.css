@@ -2,7 +2,8 @@
     display: flex;
     border: solid;
     border-color: rgb(32, 32, 32);
+    background-color:rgb(4, 175, 255);
     margin: 2px;
     font-family:'Times New Roman', Times, serif;
-
+    
 }
