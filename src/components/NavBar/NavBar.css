@@ -13,3 +13,12 @@
     border-width: 0;
     
 }
+
+/*.navbar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height:15%;
+    background-color: bisque;
+    color: black;
+*/
