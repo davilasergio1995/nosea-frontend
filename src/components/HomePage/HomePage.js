@@ -1,6 +1,7 @@
 import './HomePage.css';
 import NavBar from '../NavBar/NavBar'
 
+//Simple splash page, used to apply redirection to project. 
 let HomePage = () => {
     return(
         <div>

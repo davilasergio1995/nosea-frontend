@@ -4,9 +4,12 @@ import './Login.css';
 import Axios from 'axios';
 import {useHistory} from 'react-router-dom';
 
+//Login component, extremely important 
 let Login = () => {
+//useHistory allows redirection on a successful login    
     const history = useHistory();
-    
+
+//separate useStates from the login form
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     
@@ -18,6 +21,8 @@ let Login = () => {
         setPassword(e.target.value);
     };
 
+//POST request to server compares the login form data with the username/password database. If successful, redirect to the chat client.
+//(Currently extremely insecure, server-side libraries will be implemented for security)
     const login = (e) => {
         e.preventDefault();
         Axios.post('/api/users',{
@@ -32,6 +37,7 @@ let Login = () => {
         })
     }
 
+//Simple form, sets the username and password states that are used to compare to the database
     return(
         <div>
             <NavBar/>

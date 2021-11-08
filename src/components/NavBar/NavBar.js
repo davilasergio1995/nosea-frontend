@@ -1,5 +1,7 @@
 import './NavBar.css'
 
+//Navbar component, used in any rendered component. Currenly simple with only a login link that sends user to the login screen
+//(Login component). Will feature more usability in the future.
 let NavBar = () => {
     return(
         <div className='navbar'>

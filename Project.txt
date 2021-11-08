@@ -1,0 +1,23 @@
+CURRENT PROGRESS:
+-Basic server functionality (handles GET/POST requests for users/chat, basic database).
+-Set up a semi-working chat client (POST request bug limits functionality, once fixed client works as expected).
+-Basic routing/redirects that depend on login status/response from the server.
+-Outline of final product. All basic ideas present, another week and a half needed to fully flesh out basic features and fix any glaring problems/bugs.
+
+CURRENT ISSUES:
+-useContext the answer to login status, need to learn how to implement it properly.
+-Crippling POST request bug prevents chat client from working in real time, requires constant refreshing to see messages. 
+-Components need better styling. Current navbar and chat client positions are absolute, need to reconsider positioning.
+-Security is extremely weak, all user data easily visible and accessible.
+
+GOALS:
+-FIX POST REQUEST BUG!!!
+-Implement security libraries (Bcrypt, Helmet, etc.). One main goal of project is security implementation.
+-Learn useContext and apply correctly, allowing multiple users and page functionality.
+-Add to database, create files for chats between individual users/groups.
+
+
+BONUS (END OF PROJECT/BEYOND PROJECT DUE DATE):
+-User customizability (background, message font/color, styling, etc.)
+-More social media aspects (posts, feed, friends, etc.)
+-Potential addition/2nd project: eCommerce page, integration with chat client, social media (week 5-8)
