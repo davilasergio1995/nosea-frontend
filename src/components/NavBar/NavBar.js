@@ -6,7 +6,10 @@ let NavBar = () => {
     return(
         <div className='navbar'>
             <a href="/login" className = 'navbar_button'>
-                login
+                Login
+            </a>
+            <a href="/" className = 'navbar_button'>
+                Home
             </a>
         </div>
     )

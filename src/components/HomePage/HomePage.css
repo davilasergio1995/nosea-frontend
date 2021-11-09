@@ -1,16 +1,5 @@
 
 
-.navbar_button{
-    position: absolute;
-    text-align: center;
-    top: 10px ;
-    right: 15px;
-    color: white;
-    background-color: rgb(65, 65, 65);
-    border: 2px solid black;
-    width: 50px;
-    height: 25px;
-}
 
 .homepage_blurb{
     text-align: center;

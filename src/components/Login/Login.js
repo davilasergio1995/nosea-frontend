@@ -25,17 +25,17 @@ let Login = () => {
 //(Currently extremely insecure, server-side libraries will be implemented for security)
     const login = (e) => {
         e.preventDefault();
-        Axios.post('/api/users',{
+        Axios.post('/api/users/login',{
             username: username,
             password: password
         }).then((response) => {
-            if (response.data === 'yes') {
-                history.push('/nosea');
+            if (response.data === 'a-ok') {
+                alert('Login successful!')
             } else {
-                alert('Incorrect username and/or password');
+                alert(response.data);
             }
         })
-    }
+    };
 
 //Simple form, sets the username and password states that are used to compare to the database
     return(
@@ -43,15 +43,19 @@ let Login = () => {
             <NavBar/>
             <form className='username-and-password'>
                 <div className='input'>
-                    <label htmlFor='username'>Username:</label>
+                    <label htmlFor='username'>Username: </label>
                     <input id='username' type='text' placeholder='Username' onChange={usernameHandler}></input>
                 </div>
                 <div className = 'input'>
                     <label htmlFor='passord'>Password: </label>
-                    <input id='password' type='text' placeholder='Password' onChange={passwordHandler}></input>
+                    <input id='password' type='password' placeholder='Password' onChange={passwordHandler}></input>
                 </div>
-                <button onClick={login}></button>    
+                <button onClick={login} className='input_button'>Login</button>    
             </form>
+            <div className = 'signup'>
+                <div>Not registered?</div>
+                <a href = "/signup">Sign up!</a>
+            </div>
         </div>
     )
 };

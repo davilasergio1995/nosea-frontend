@@ -1,10 +1,28 @@
 .username-and-password {
-    display: block;
-    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     left: 33%;
     top: 40%;
 }
 
 .input {
     margin: 15px;
+}
+
+.input_button {
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    color: white;
+    background-color: rgb(65, 65, 65);
+    border: 2px solid black;
+    width: 50px;
+    height: 25px;
+}
+
+.signup {
+    display: flex;
+    align-items: center;
+    
 }
