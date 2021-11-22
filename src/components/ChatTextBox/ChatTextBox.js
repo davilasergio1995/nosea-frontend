@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
 import Axios from 'axios';
-import './TextBox.css';
+import './ChatTextBox.css';
 
 //Submits text from text box into the .JSON file/database
 
-let TextBox = () => {
+let ChatTextBox = () => {
     const [text, setText] = useState('');
 
 //Message ID hash function. Not needed, will replace with simple incrementing function.    
@@ -21,17 +21,36 @@ let TextBox = () => {
 //a 500 server error gets thrown, need to debug to continue). Will reformat to send individual user messages instead of a hard coded
 //user's messages.
     let chatSubmit = (e) => {
+        let postURL = '/api/mainchatpost';
         e.preventDefault();
         if (text === '') {
             return;
+        };
+        if (sessionStorage.length !== 0) {
+            
+            Axios.post(postURL, {
+                message: {
+                    username: sessionStorage.getItem('username'),
+                    messageId: idGen(text),
+                    messageContent: text},
+                    headers: {
+                        'authorization': `Bearer ${sessionStorage.getItem('userAccessToken')}`
+                }
+            }).catch(err => console.log(err));
+            setText('');
+        } else if (localStorage.length !== 0) {
+            Axios.post(postURL, {
+                message: { 
+                username: localStorage.getItem('username'),
+                messageId: idGen(text),
+                messageContent: text,},
+                headers: {
+                    'authorization': `Bearer ${localStorage.getItem('userAccessToken')}`
+                }
+            }).catch(err => console.log(err));
+            setText('');
         }
-        Axios.post('/api/chatLogs/', {
-            userName: "Snowhopfirado",
-            userId: "42069",
-            messageId: idGen(text),
-            messageContent: text
-        }).catch(err => console.log(err));
-        setText('');
+        
     }
     
     return(
@@ -43,4 +62,4 @@ let TextBox = () => {
     
 };
 
-export default TextBox;
+export default ChatTextBox;

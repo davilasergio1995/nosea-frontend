@@ -12,6 +12,8 @@ let Login = () => {
 //separate useStates from the login form
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [stayLoggedIn, setStayLoggedIn] = useState(false);
+
     
     const usernameHandler = (e) => {
         setUsername(e.target.value.toUpperCase());
@@ -21,19 +23,37 @@ let Login = () => {
         setPassword(e.target.value);
     };
 
+    const check = () => {
+        setStayLoggedIn(!stayLoggedIn);
+    }
+
 //POST request to server compares the login form data with the username/password database. If successful, redirect to the chat client.
-//(Currently extremely insecure, server-side libraries will be implemented for security)
     const login = (e) => {
+        let userAccessToken;
         e.preventDefault();
         Axios.post('/api/users/login',{
             username: username,
             password: password
         }).then((response) => {
-            if (response.data === 'a-ok') {
-                alert('Login successful!')
+            if (response.data === 'no user') {
+                alert('User doesn\'t exist')
+            } else if (response.data === 'no password') {
+                alert('Incorrect password');
             } else {
-                alert(response.data);
-            }
+                userAccessToken = response.data.accessToken;
+                if (stayLoggedIn) {
+                    localStorage.setItem('userAccessToken',userAccessToken);
+                    localStorage.setItem('username',username);
+                    alert('Signin successful!');
+                    history.push('/');
+                } else {
+                    sessionStorage.setItem('userAccessToken',userAccessToken);
+                    sessionStorage.setItem('username',username);
+                    alert('Signin successful!');
+                    history.push(`/`);
+                }
+            };
+
         })
     };
 
@@ -50,12 +70,17 @@ let Login = () => {
                     <label htmlFor='passord'>Password: </label>
                     <input id='password' type='password' placeholder='Password' onChange={passwordHandler}></input>
                 </div>
+                <div className = 'input'>
+                    <input id='localSession' type='checkbox' onClick={check}></input>
+                    <label htmlFor='localSession'>Stay logged in</label>
+                </div>
                 <button onClick={login} className='input_button'>Login</button>    
             </form>
             <div className = 'signup'>
                 <div>Not registered?</div>
                 <a href = "/signup">Sign up!</a>
             </div>
+            
         </div>
     )
 };
