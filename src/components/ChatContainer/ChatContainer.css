@@ -1,13 +1,25 @@
 .chat_container {
     position: fixed;
-    bottom: 0px;
-    right:0;
+    bottom: 0;
+    right:5%;
     display: flex;
-    flex-direction: column-reverse;
     background-color:rgb(122, 59, 167);
-    width: 30%;
-    height: 55%;
+    width: 25em;
+    height: 25em;
     border: solid 2px black;
     overflow-y: auto;
+    z-index:0;
+}
+.message_container {
+    position:relative;
+    background-color:rgb(230, 230, 230);
+    color: bisque;
+    display: flex;
+    flex-direction: column-reverse;
+    overflow-y:auto;
+    top: 2em;
+    width:100%;
+    height:60%;
+    z-index:1;
 }
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import './message.css';
+import './Message.css';
 
 //Simple component, takes in info using props from the ChatGen component.
 let Message = (props) => {

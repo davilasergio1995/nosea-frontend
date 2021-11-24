@@ -54,7 +54,7 @@ let ChatTextBox = () => {
     }
     
     return(
-        <form>
+        <form className = 'form'>
             <input className='textBox' type='text' value={text} onChange={(e) => setText(e.target.value)}/>
             <button className='chat_button' onClick={chatSubmit}></button>
         </form>

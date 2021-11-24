@@ -38,8 +38,7 @@ let [messages, setMessages] = useState([]);
 let chatMap = messages.map(e => <Message key = {e.messageId} username={e.username} message={e.messageContent}></Message>)
     return(
       <div>
-        <div>{chatMap}</div>
-        <ChatTextBox/>
+        <div>{chatMap}</div>       
       </div>
 
     )
